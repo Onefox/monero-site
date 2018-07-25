@@ -20,10 +20,10 @@
   name: Mining
 
 - slug: i2p
-  name: i2p
+  name: Kovri I2P Router
 
 - slug: i8n
-  name: Internationalisation
+  name: Internationalization
 
 - slug: rpc
   name: RPC API
@@ -63,7 +63,7 @@
 
 - slug: funding
   name: Funding and Donations
-  
+
 - slug: research
   name: Monero Research Lab
 
@@ -75,3 +75,6 @@
 
 - slug: releases
   name: Monero Software Releases
+
+- slug: protocol upgrade
+  name: Protocol Upgrade

@@ -1,78 +1,141 @@
 ---
-layout: static_page
-title: "All Monero Downloads"
-title-pre-kick: "All Monero"
-title-kick: "Downloads"
-title-post-kick: ""
-kick-class: "red-kicks"
-icon: "icon_all_downloads"
-attribution: "<!-- Icon is based on work by Freepik (http://www.freepik.com) and is licensed under Creative Commons BY 3.0 -->"
+layout: custom
+title: titles.downloads
+permalink: /downloads/index.html
 ---
 
-### Monero Core
-
-Monero Core consists of several applications, including bitmonerod (the daemon used if running a @full-node, as it maintains the connection to the Monero network) and simplewallet (a Monero @account manager application), as well as several other helper applications.
-
-If you are using Monero Core for the first time you can simply download an appropriate release, and run bitmonerod to get synced up to the network.
-
-Note: the SHA256 hashes are listed by the downloads for convenience, but a GPG-signed list of the hashes is at [getmonero.org/downloads/hashes.txt](https://getmonero.org/downloads/hashes.txt) and should be treated as canonical, with the signature checked against the appropriate GPG key in the source code (in /utils/gpg_keys).
-
-<div class="row">
-
-{% for data_downloads in site.data.downloads %}
-
-{% if data_downloads.hash == "source" %}
-
-<div class="col-lg-6" style="padding-bottom: 5px;">
-
-<h4 id="{{ data_downloads.platform | slugify }}">
- <a href="{{ data_downloads.url }}">
-  <img src="//static.getmonero.org/images/platforms/{{ data_downloads.icon }}" style="height: 30px;"> {{ data_downloads.platform }}
- </a>
-</h4>
-
-<strong>Current Version:</strong> {{ data_downloads.version }} <em>{{ data_downloads.tag }}</em><br>
-<hr>
-
+<div class="downloads">
+    <div class="container description">
+    <p>{% t downloads.intro1 %} <a href="https://www.reddit.com/r/Monero/comments/64b5lf/what_is_the_best_monero_wallet/">{% t downloads.intro2 %}</a> {% t downloads.intro3 %}</p>
+    <p><em>{% t downloads.note1 %} <a href="https://getmonero.org/downloads/hashes.txt ">getmonero.org/downloads/hashes.txt</a> {% t downloads.note2 %}</em></p>
+    </div>
+    <div class="container full downdropdown">
+        <div class="info-block download-nav row middle-xs between-xs" id="selections">
+            <div class="col"><a href="#windows">Windows</a></div>
+            <div class="col"><a href="#mac">Mac</a></div>
+            <div class="col"><a href="#linux">Linux</a></div>
+            <div class="col"><a href="#arm">Arm (v7 & 8)</a></div>
+            <div class="col"><a href="#bsd">BSD</a></div>
+            <div class="col"><a href="#source">{% t downloads.sourceblockchain %}</a></div>
+            <div class="col"><a href="#mobilelight">{% t downloads.mobilelight %}</a></div>
+            <div class="col"><a href="#hardware">{% t downloads.hardware %}</a></div>
+        </div>
+    </div>
+    <div class="container full">
+      <div class="info-block row center-xs" id="pick-platform">
+         <div class="mob dropdowndrop">
+            <input id="check01" type="checkbox" name="menu"/>
+            <label for="check01">{% t downloads.choose %}</label>
+            <ul id="menu">
+              <li><a href="#windows">Windows</a></li>
+              <li><a href="#mac">Mac</a></li>
+              <li><a href="#linux">Linux</a></li>
+              <li><a href="#arm">Arm (v7 & 8)</a></li>
+              <li><a href="#bsd">BSD</a></li>
+              <li><a href="#source">{% t downloads.sourceblockchain %}</a></li>
+              <li><a href="#mobilelight">{% t downloads.mobilelight %}</a></li>
+              <li><a href="#hardware">{% t downloads.hardware %}</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+    <div class="download-platforms">
+        {% for data_downloads in site.data.downloads %}
+            <section class="container full" id="{{ data_downloads.id}}">
+                <div class="info-block">
+                    <h2>
+                        {% if data_downloads.icon != null %}
+                            <span class="{{data_downloads.icon}}"></span>  
+                        {% endif %}
+                        {{data_downloads.platform}}
+                    </h2>
+                    {% if data_downloads.cli_hash == "source" %}
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+                                <h4 id="{{ data_downloads.platform | slugify }}">
+                                    <a href="{{ data_downloads.cli_url }}">{% t downloads.sourcecode %}</a>
+                                </h4>
+                            </div>
+                            <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+                                <p>{% t downloads.blockchain1 %} <a href="https://downloads.getmonero.org/blockchain.raw">{% t downloads.blockchain2 %}</a> {% t downloads.blockchain3 %}</p>
+                            </div>
+                        </div>
+                    {% elsif data_downloads.id == "hardware" %}
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+                                <p>{% t downloads.hardware1 %} <a href="https://forum.getmonero.org/9/work-in-progress/88149/dedicated-monero-hardware-wallet" target="_blank" rel="noreferrer, noopener">{% t downloads.hardware2 %}</a> {% t downloads.hardware3 %} <a href="https://github.com/LedgerHQ/blue-app-monero" target="_blank" rel="noreferrer, noopener">{% t downloads.hardware4 %}</a></p>
+                            </div>
+                        </div>
+                    {% elsif data_downloads.id == "mobilelight" %}
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+                                <p>{% t downloads.mobilelight1 %} <a href="/community/hangouts/"> {% t downloads.mobilelight2 %}</a>{% t downloads.mobilelight3 %}</p>
+                            </div>
+                        </div>
+                        <div class="row center-xs">
+                            <div class="col-xs-6 col-sm-4">
+                                <a href="https://cakewallet.io"><img style="height: 115px;"  src="/img/cakewallet.png" alt="Cake Wallet Logo"></a>
+                            </div>
+                            <div class="col-xs-6 col-sm-4">
+                                <a href="https://monerujo.io"><img style="height: 115px;" src="/img/Monerujo-wallet.png" alt="Monerujo Logo"></a>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <a href="https://mymonero.com"><img src="/img/mymonero.png" alt="MyMonero Logo"></a>
+                            </div>
+                        </div>
+                    {% elsif data_downloads.gui_hash == nil and data_downloads.cli_hash != nil %}
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+                                <h4 id="{{ data_downloads.platform | slugify }}">
+                                     <a href="//downloads.getmonero.org/cli/{{ data_downloads.cli_url }}"> {{ data_downloads.platform }} {% t downloads.clionly %}</a>
+                                </h4>
+                                <p>{% t downloads.currentversion %}: {{ data_downloads.version }} {{ data_downloads.tag }}</p>
+                            </div>
+                         </div>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+                                <p><strong>SHA256 Hash:</strong></p>
+                                <p class="hash"> {{ data_downloads.cli_hash }}</p>
+                            </div>
+                        </div>
+                    {% elsif data_downloads.gui_hash != nil and data_downloads.cli_hash == nil %}
+                        <div class="row">
+                            <h4 id="{{ data_downloads.platform | slugify }}">
+                                <a href="//downloads.getmonero.org/gui/{{ data_downloads.gui_url }}">{{ data_downloads.platform }}</a>
+                            </h4>
+                            <p>{% t downloads.currentversion %}: {{ data_downloads.version }} {{ data_downloads.tag }}</p>
+                        </div>
+                        <div class="row">
+                            <p><strong>SHA256 Hash:</strong></p>
+                            <p class="hash"> {{ data_downloads.gui_hash }}</p>
+                        </div>
+                    {% elsif data_downloads.gui_hash != nil and data_downloads.cli_hash != nil %}
+                        <div class="row start-md">
+                            <div class="col-md-6 col-sm-12" >
+                                <h4 id="{{ data_downloads.platform | slugify }}">
+                                    <a href="//downloads.getmonero.org/gui/{{ data_downloads.gui_url }}">{{ data_downloads.platform }}</a>
+                                </h4>
+                                <p>{% t downloads.currentversion %}: {{ data_downloads.gui_version }} {{ data_downloads.tag }}</p>
+                                <p><strong>SHA256 Hash (GUI):</strong></p>
+                                <p class="hash"> {{ data_downloads.gui_hash }}</p>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h4>
+                                    <a href="//downloads.getmonero.org/cli/{{ data_downloads.cli_url }}">{{ data_downloads.platform }} {% t downloads.clionly %}</a>
+                                </h4>
+                                <p>{% t downloads.currentversion %}: {{ data_downloads.cli_version }} {{ data_downloads.tag }}</p>
+                                <p><strong>SHA256 Hash (CLI):</strong></p>
+                                <p class="hash"> {{ data_downloads.cli_hash }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </section>
+        {% endfor %}
+    </div>
+    <a href="#" class="arrow-up"><i></i></a>
 </div>
 
-{% elsif data_downloads.hash == "none" %}
-
-<div class="col-lg-6" style="padding-bottom: 5px;">
-
-<h4 id="{{ data_downloads.platform | slugify }}">
-  <img src="//static.getmonero.org/images/platforms/{{ data_downloads.icon }}" style="height: 30px;"> {{ data_downloads.platform }}
-</h4>
-
-<br>
-<strong>Coming Soon</strong><br>
-<hr>
-
+<div class="untranslated {% t downloads.translated %}">
+    <p>{% t global.untranslated %} <a class="untranslated-link" href="https://github.com/monero-project/monero-site/blob/master/README.md">README</a>.</p>
 </div>
-
-{% else %}
-
-<div class="col-lg-6" style="padding-bottom: 5px;">
-
-<h4 id="{{ data_downloads.platform | slugify }}">
- <a href="//downloads.getmonero.org/{{ data_downloads.url }}">
-  <img src="//static.getmonero.org/images/platforms/{{ data_downloads.icon }}" style="height: 30px;"> {{ data_downloads.platform }}
- </a>
-</h4>
-
-<strong>Current Version:</strong> {{ data_downloads.version }} <em>{{ data_downloads.tag }}</em><br>
-<strong>SHA Hash:</strong> {{ data_downloads.hash }}<br>
-<hr>
-
-</div>
-
-{% endif %}
-
-{% endfor %}
-</div>
-
-### Other Downloads
-
-- If you'd prefer to use a blockchain bootstrap, instead of syncing up from scratch, you can [use this link for the most current bootstrap](https:////downloads.getmonero.org/blockchain.raw). It is typically much faster to sync from scratch, however.
-- For Monero Research Lab publications please visit the [Monero Research Lab section](/research-lab) of this site.
-- High resolution and vector copies of the Monero logo [can be downloaded at this link](https://downloads.getmonero.org/resources/branding.zip).

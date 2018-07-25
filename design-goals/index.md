@@ -1,12 +1,10 @@
 ---
-layout: static_page
+layout: user-guide
 title: "Design and Development Goals"
 title-pre-kick: "Design and Development "
 title-kick: "Goals"
 title-post-kick: ""
 kick-class: "red-kicks"
-icon: "icon_goals"
-attribution: "<!-- Icon is based on work by Freepik (http://www.freepik.com) and is licensed under Creative Commons BY 3.0 -->"
 ---
 
 ### Development Goals

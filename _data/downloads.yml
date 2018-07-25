@@ -1,53 +1,85 @@
 - platform: Windows, 64-bit
-  icon: windows.svg
-  url: win64
-  hash: 33453727a8a49e07605dfee4b16aeb78816238a0e5c07dbaf19840f56f8d2cd4
-  version: 0.10.0.0
-  tag: Wolfram Warptangent
+  id: windows
+  icon: icon-windows
+  cli_url: win64
+  cli_hash: 5c06097acebf643857672e673258d16d66a71de504377399b7407318f9887ee3
+  gui_url: win64
+  gui_hash: 3ec0d58db79bbdffc7b8f5eaf175ab412f55260325fd7af40504c6e223868de9
+  cli_version: 0.12.3.0
+  gui_version: 0.12.2.0
+  tag: Lithium Luna
   blockchain: win
 
 - platform: Windows, 32-bit
-  icon: windows.svg
-  url: win32
-  hash: b0b7898050e6de2bc2aa443fa783cf275683513c0d3714e66fe00e2c75378af6
-  version: 0.10.0.0
-  tag: Wolfram Warptangent
+  icon: icon-windows
+  cli_url: win32
+  cli_hash: 4a1718e75e2467f9a4b02b5c342b702999c97b1c0f8a1cdd5a63d7c2b21f849a
+  version: 0.12.2.0
+  tag: Lithium Luna
   blockchain: win
 
 - platform: Mac OS X, 64-bit
-  icon: apple.svg
-  url: mac64
-  hash: 204babf52d76e513d1f16527be4b3fb30d3ffbdd7528bf3997e4c1b5b301c9a8
-  version: 0.10.0.0
-  tag: Wolfram Warptangent
+  id: mac
+  icon: icon-apple
+  cli_url: mac64
+  cli_hash: 39d40e2001ca9948f434637c28b3933c0d79c66e2db07ffc4274711ab2d2ae66
+  gui_url: mac64
+  gui_hash: 298ff610d3c18afe1ae78691fa995d7f0e0ab39cd768de3ce6616e4678ee57b8
+  cli_version: 0.12.3.0
+  gui_version: 0.12.2.0
+  tag: Lithium Luna
   blockchain: mac
 
 - platform: Linux, 64-bit
-  icon: linux.svg
-  url: linux64
-  hash: 6fe4cdb98d6ea7d2eded79841f70cb64edb840fcb2c84b904a1114424cffc5b1
-  version: 0.10.0.0
-  tag: Wolfram Warptangent
+  id: linux
+  icon: icon-linux
+  cli_url: linux64
+  cli_hash: 72fe937aa2832a0079767914c27671436768ff3c486597c3353a8567d9547487
+  gui_url: linux64
+  gui_hash: 9fb90501d9a86b74d7bb88936dfddba0de9eabb8e0a7fe61f3e45fddfb02798a
+  cli_version: 0.12.3.0
+  gui_version: 0.12.2.0
+  tag: Lithium Luna
   blockchain: linux
 
 - platform: Linux, 32-bit
-  icon: linux.svg
-  url: linux32
-  hash: 89c9d2904c0de308eb31695af70084008c5880a2c0628de2fee8e47dd23967ea
-  version: 0.10.0.0
-  tag: Wolfram Warptangent
+  icon: icon-linux
+  cli_url: linux32
+  cli_hash: 41d68f66a43098754de0d2ead0eaeb125fc7eb05ecf3eb6a48c96ce6874052f3
+  gui_url: linux32
+  gui_hash: 79975f5fd8b089cd42af9e9426ba559ea7fdd5eebd76d117946c038692abf0f0
+  cli_version: 0.12.3.0
+  gui_version: 0.12.2.0
+  tag: Lithium Luna
   blockchain: linux
 
 - platform: ARMv7
-  icon: arm.svg
-  url: arm
-  hash: cced4cad630e6b5e7131b9d079c3d176dfea79915b9080bdba199508c69e377b
-  version: 0.10.0.0
-  tag: Wolfram Warptangent
+  id: arm
+  icon: icon-arm
+  cli_url: linuxarm7
+  cli_hash: 839bddb01214acb8f7bc12181b206e1e8d99314337addef7ba850b15c32dc685
+  version: 0.12.3.0
+  tag: Lithium Luna
   blockchain: arm
 
-- platform: Source Code
-  icon: github.svg
-  url: https://github.com/monero-project/bitmonero
-  hash: source
+- platform: ARMv8
+  id: arm
+  icon: icon-arm
+  cli_url: linuxarm8
+  cli_hash: a6e994dc9fcec7259b656752a6fc0f9686bad47da9deec0f50398718cd9b9be8
+  version: 0.12.3.0
+  tag: Lithium Luna
+  blockchain: arm
+
+- platform: Source Code & Blockchain
+  id: source
+  icon: icon-github
+  cli_url: https://github.com/monero-project/monero
+  cli_hash: source
   version: Bleeding edge (possibly unstable)
+  
+- platform: Mobile & Light Wallets
+  id: mobilelight
+  
+- platform: Hardware Wallets
+  id: hardware
